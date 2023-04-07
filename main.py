@@ -41,8 +41,9 @@ def add_research_activity(name, speaker='无', department='苏州大学', locati
     data = [name, speaker, department, location, date, summary]
     # 培养环节管理
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpaths['培养环节管理'])))
-    url = driver.find_element_by_xpath(xpaths['培养环节管理']).get_property('href')
-    driver.get(url)
+    driver.find_element_by_xpath(xpaths['培养环节管理']).click()
+    # url = driver.find_element_by_xpath(xpaths['培养环节管理']).get_property('href')
+    # driver.get(url)
 
     try:
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "btn_add10")))  # 等待页面加载
@@ -72,8 +73,9 @@ def clear_research_activities():
     :return: 无返回值
     '''
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpaths['培养环节管理'])))
-    url = driver.find_element_by_xpath(xpaths['培养环节管理']).get_property('href')
-    driver.get(url)
+    driver.find_element_by_xpath(xpaths['培养环节管理']).click()
+    # url = driver.find_element_by_xpath(xpaths['培养环节管理']).get_property('href')
+    # driver.get(url)
     try:
         # 等待数据加载（已录入的数据多时加载很慢
         WebDriverWait(driver, 60).until(EC.presence_of_element_located(
